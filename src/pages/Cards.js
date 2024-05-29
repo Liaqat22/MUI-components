@@ -10,6 +10,8 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import { Button } from '@mui/material';
 import axios from 'axios';
+import photo from "../logo.svg"
+
 function Cards() {
   const [expanded, setExpanded] = useState("");
 
@@ -38,8 +40,10 @@ function Cards() {
     <>
       <div className='container-fluid'>
         <div className='row'>
-          {products.slice(0, 4).map((p) => (
-            <div className='col-md-3 mt-3' key={p._id}>
+        <Typography variant='h4' className='text-center'>Card</Typography>
+
+          {products.slice(0, 3).map((p) => (
+            <div className='col-md-4 mt-3' key={p._id}>
 
 
               <Card >
@@ -55,7 +59,7 @@ function Cards() {
                 <CardMedia
                   component="img"
                   height="194"
-                  image={`https://vercel-api-deployment.vercel.app/api/v1/product/product-photo/${p?._id}`}
+                  image={photo}
                   alt="Paella dish"
                 />
                 <CardContent>
