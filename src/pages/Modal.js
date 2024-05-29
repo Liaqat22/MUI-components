@@ -2,6 +2,7 @@ import {  Button, Card, CardActions, CardContent, CardHeader, CardMedia, Modal, 
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import photo from "../logo.svg"
 
 
 
@@ -47,16 +48,17 @@ function Modalpage() {
     <>
       <div className='container-fluid'>
         <div className='row'>
+          <Typography variant='h4' className='text-center'>Modal</Typography>
           {
-            projects.slice(0, 4).map((p) => (
-              <div className='col-md-3 mt-3' key={p?._id}>
+            projects.slice(0, 3).map((p) => (
+              <div className='col-md-4 mt-3' key={p?._id}>
                 <Card >
 
                   <CardHeader title={p.name} sx={{ color: "darkorange", textWrap: "nowrap" }} />
 
 
                   <CardMedia height="194" component="img"
-                    image={`https://personal-portfolio-api-s.vercel.app/api/v1/project/project-photo/${p._id}`} />
+                    image={photo} />
                   <CardContent>
                     <Typography>
                       {p.description.substring(0, 30)}
@@ -68,10 +70,10 @@ function Modalpage() {
                     <Button sx={{ background: "lightgray" }} onClick={() => handleOpen(p._id)} >view Details </Button>
                   </CardActions>
 
-                  <Modal open={p._id == open} onClose={handleClose}>
+                  <Modal open={p._id === open} onClose={handleClose}>
                     <Card sx={style} borderRadius="1rem">
                       <CardMedia height="200" width="200" sx={{ objectFit: "contain" }} component="img"
-                        image={`https://personal-portfolio-api-s.vercel.app/api/v1/project/project-photo/${p._id}`} />
+                        image={photo} />
 
                       <Typography >project name : <b>{p.name}</b> </Typography>
                       <Typography >description : {p.description}  </Typography>
@@ -79,6 +81,9 @@ function Modalpage() {
                       <Button sx={{ background: " skyblue" }} className='mx-2'>
                         <NavLink to={p.link} className="navlink" target='_blank'
                           rel='noopener noreferrer'>Click to explore</NavLink>
+                      </Button>
+                      <Button sx={{ background: " pink" }} className='mx-2' onClick={handleClose}>
+                        Cancell
                       </Button>
 
                     </Card>
