@@ -11,7 +11,7 @@ import { red } from '@mui/material/colors';
 import { Button } from '@mui/material';
 import axios from 'axios';
 import photo from "../logo.svg"
-import MuiCards from "./MuiCards"
+// import MuiCards from "./MuiCards"
 
 function Cards() {
   const [expanded, setExpanded] = useState("");
@@ -93,8 +93,8 @@ function Cards() {
 
             </div>
           ))}
-            <Typography gutterBottom sx={{textAlign:"center" , fontWeight:"bold"}}> Card - 2 </Typography>
-            <MuiCards/>
+            // <Typography gutterBottom sx={{textAlign:"center" , fontWeight:"bold"}}> Card - 2 </Typography>
+            // <MuiCards/>
         </div>
       </div>
 
